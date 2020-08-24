@@ -2259,7 +2259,8 @@ else if (msg.body == ".admin") {
  client.sendMessage(msg.from,  `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
-Versi : *1.2*
+
+-=[ 🚫 Menu Admin Grup 🚫 ]=-
 
 • *!subject* = Ganti nama grup.
 • *!kick* = Kick member grup.
@@ -2267,6 +2268,10 @@ Versi : *1.2*
 • *!demote* = Menurunkan admin group.
 • *!add* = Menambah member group.
 • *!deskripsi* = Ganti deskripsi grup.
+
+✨ _Harap Diketahui, Fitur Ini Hanya Bisa Berfungsi Jika Saya Dijadikan Admin Di Grup Ini_.
+
+*AZ WhatsApp Bot © 2020*
  `);
  }
  
