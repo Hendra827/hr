@@ -360,71 +360,6 @@ const media = new MessageMedia('image/jpg', yuli);
 console.log(gambar);
 client.sendMessage(media);
 }
- else if (msg.body.startsWith("!makeff ")) {
-	 msg.reply("sebentarr.. kita proses dulu")
-	  var h = msg.body.split("!makeff ")[1];
-	 var nama = h.split("] ")[1];
-	 var kata1 = h.split("[")[1].split("]")[0];
-	 	const { exec } = require("child_process");
-
-  (async () => {
-    const browser = await puppeteer.launch({
-      headless: false,
-
-    });
-    const page = await browser.newPage();
-    await page
-      .goto("https://ephoto360.com/tao-banner-youtube-game-free-fire-online-635.html", {
-        waitUntil: "networkidle2",
-      })
-      .then(async () => {
-		  		await page.click("#radio0-radio-83d1c1baf4c44e72bacc6cb8fe1c92a0");
-     await page.type("#text-1", kata1);
-   
-		  await page.type("#text-0", nama);
-		await page.click("#submit");
-		await new Promise(resolve => setTimeout(resolve, 10000));
-        try {
-         
-          await page.waitForSelector(
-            "#link-image"
-          );
-          const element = await page.$(
-         "div.thumbnail > img"
-          );
-          const text = await (await element.getProperty("src")).jsonValue();
-         console.log(text);
-
-        exec('wget "' + text + '" -O mp4/ff.jpg', (error, stdout, stderr) => {
-  const media = MessageMedia.fromFilePath('mp4/ff.jpg');
-
-	chat.sendMessage(media);
-	if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-
-    console.log(`stdout: ${stdout}`);
-});
-          browser.close();
-        } catch (error) {
-          console.log(error);
-       
-
-        }
-      })
-      .catch((err) => {
-        console.log(error);
-    
-      });
-	 
-	 
-  })();
- }
  else if (msg.body.startsWith("!glowtext ")) {
 	 msg.reply("sebentarr.. kita proses dulu")
 	  var h = msg.body.split("!glowtext ")[1];
@@ -642,6 +577,67 @@ client.sendMessage(media);
 
         exec('wget "' + text + '" -O mp4/galaxy1.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/galaxy1.jpg');
+
+  chat.sendMessage(media);
+  if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+
+    console.log(`stdout: ${stdout}`);
+});
+          browser.close();
+        } catch (error) {
+          console.log(error);
+       
+
+        }
+      })
+      .catch((err) => {
+        console.log(error);
+    
+      });
+   
+   
+  })();
+ }
+   else if (msg.body.startsWith("!pubg ")) {
+   msg.reply("sebentarr.. kita proses dulu")
+    var h = msg.body.split("!pubg ")[1];
+
+    const { exec } = require("child_process");
+
+  (async () => {
+    const browser = await puppeteer.launch({
+      headless: false,
+
+    });
+    const page = await browser.newPage();
+    await page
+      .goto("https://en.ephoto360.com/create-facebook-game-pubg-cover-photo-407.html", {
+        waitUntil: "networkidle2",
+      })
+      .then(async () => {
+      await page.type("#text-0", h);
+    await page.click("#submit");
+    await new Promise(resolve => setTimeout(resolve, 10000));
+        try {
+         
+          await page.waitForSelector(
+            "#link-image"
+          );
+          const element = await page.$(
+         "div.thumbnail > img"
+          );
+          const text = await (await element.getProperty("src")).jsonValue();
+         console.log(text);
+
+        exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
+  const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
   chat.sendMessage(media);
   if (error) {
@@ -1846,66 +1842,6 @@ exec('wget "' + d.url + '" -O ok.jpg', (error, stdout, stderr) => {
 });
 });
 }
-else if (msg.body == "7") {
-const cheerio = require('cheerio');
-const request = require('request');
-
-const { exec } = require("child_process");
-request.get({
-  headers: {'content-type' : 'application/x-www-form-urlencoded'},
-  url:     'https://api.computerfreaker.cf/v1/dva',
- 
-},function(error, response, body){
-    let $ = cheerio.load(body);
-    var d = JSON.parse(body);
-console.log(d.url); 
-exec('wget "' + d.url + '" -O adv.jpg', (error, stdout, stderr) => {
-	var media = MessageMedia.fromFilePath('adv.jpg');
-
-	chat.sendMessage(media);
-	if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-
-    console.log(`stdout: ${stdout}`);
-});
-});
-}
- else if (msg.body == "6") {
-const cheerio = require('cheerio');
-const request = require('request');
-
-const { exec } = require("child_process");
-request.get({
-  headers: {'content-type' : 'application/x-www-form-urlencoded'},
-  url:     'https://api.computerfreaker.cf/v1/nsfwneko',
- 
-},function(error, response, body){
-    let $ = cheerio.load(body);
-    var d = JSON.parse(body);
-console.log(d.url); 
-exec('wget "' + d.url + '" -O ok.jpg', (error, stdout, stderr) => {
-	var media = MessageMedia.fromFilePath('ok.jpg');
-
-	chat.sendMessage(media);
-	if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-
-    console.log(`stdout: ${stdout}`);
-});
-});
-}
   else if (msg.body.startsWith("!sendto ")) {
     // Direct send a new message to specific id
     let number = msg.body.split(" ")[1];
@@ -1940,18 +1876,15 @@ Dibuat Oleh : *Alif Putra Darmawan*
 Jenis Perintah : *!menu*
 
 Berikut daftar perintah yang bisa digunakan :			
-• *0* : Menu Admin
+• *.admin* : Menu Admin Grup
 • *1* : Menu Utama
 • *2* : Menu Downloader
 • *3* : Menu Horoscape
 • *4* : Menu Cek Resi
-• *5* : Random Anime
-• *6* : Random Hentai
-• *7* : Random ADV
-• *8* : Logo Maker Bot
+• *5* : Tools Logo Maker
 `);
 }
-else if (msg.body == "0") {
+else if (msg.body == ".admin") {
  client.sendMessage(msg.from,  `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
@@ -2039,7 +1972,7 @@ contoh : !sial 17 08 1945
  contoh : !pasangan Dimas & Dinda
 `);
 }	
-else if (msg.body == "8") {
+else if (msg.body == "5") {
 	client.sendMessage (msg.from, `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
@@ -2047,7 +1980,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
 Generate Maker Text
 
 • *!glowtext* Namamu
-• *!jokertext* Namamu
+• *!pubg* Namamu
 • *!galaxy* Namamu
 • *!galaxy1* Namamu
 • *!neon* Namamu
