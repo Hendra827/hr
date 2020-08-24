@@ -2249,7 +2249,7 @@ Jenis Perintah : *!menu*
 Berikut daftar perintah yang bisa digunakan :			
 • *.admin* : Menu Admin Grup
 • *1* : Menu Utama
-• *2* : Menu Downloader
+• *2* : Menu Music Download
 • *3* : Menu Horoscape
 • *4* : Menu Cek Resi
 • *5* : Tools Logo Maker
@@ -2276,12 +2276,7 @@ Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
 
-• *!randomanime* = untuk melihat gambar anime secara random
-
 • *!quotes* : Melihat quotes dari tokoh terkenal
-
-• *!play nama lagu*
-contoh: *!play whatever it takes*
 
 • *!wait* : Menampilkan informasi anime dengan mengirim gambar dengan caption !wait
 
@@ -2300,7 +2295,7 @@ contoh (Jika mengetahui nama artis) : !lirik alan walker - faded
 contoh (Jika tidak mengetahui nama artis) : !lirik - faded
 `);
  }
-else if (msg.body == "2") {
+else if (msg.body == "bmzt") {
  client.sendMessage(msg.from,  `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
@@ -2323,6 +2318,21 @@ contoh : !igv url
 
 `);
 }
+else if (msg.body == "2") {
+	client.sendMessage (msg.from, `
+Nama : *AZ-WhatsApp Bot*
+Dibuat Oleh : *Alif Putra Darmawan*
+
+-=[ 🎶 Download Music 🎶 ]=-
+
+• *!play* Request Judul Lagu
+• *!ytmp3* Link Video Music Youtube
+
+📣 _Dilarang Request Lagu Lebih Dari 1 Jam, Demi Kebaikan Bersama :)_
+
+*AZ WhatsApp Bot © 2020*
+`);
+}	
 
 else if (msg.body == "3") {
 	client.sendMessage (msg.from, `
