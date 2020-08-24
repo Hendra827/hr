@@ -482,6 +482,68 @@ client.sendMessage(media);
    
   })();
  }
+   else if (msg.body.startsWith("!goldplay ")) {
+   msg.reply("_Mohon Menunggu Juragan_")
+    var h = msg.body.split("!goldplay ")[1];
+
+    const { exec } = require("child_process");
+
+  (async () => {
+    const browser = await puppeteer.launch({
+      headless: false,
+
+    });
+    const page = await browser.newPage();
+    await page
+      .goto("https://en.ephoto360.com/create-silver-button-gold-button-social-network-online-450.html", {
+        waitUntil: "networkidle2",
+      })
+      .then(async () => {
+      await page.type("#text-0", h);
+    await page.click("#submit");
+    await new Promise(resolve => setTimeout(resolve, 10000));
+        try {
+         
+          await page.waitForSelector(
+            "#link-image"
+          );
+          const element = await page.$(
+         "div.thumbnail > img"
+          );
+          const text = await (await element.getProperty("src")).jsonValue();
+         console.log(text);
+
+        exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
+  const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
+
+  chat.sendMessage(media);
+  if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+
+    console.log(`stdout: ${stdout}`);
+});
+          browser.close();
+        } catch (error) {
+          console.log(error);
+       
+
+        }
+      })
+      .catch((err) => {
+        console.log(error);
+    w
+      });
+   
+   
+  })();
+ }
+
     else if (msg.body.startsWith("!tatto ")) {
    msg.reply("sebentarr.. kita proses dulu")
     var h = msg.body.split("!tatto ")[1];
@@ -2224,7 +2286,7 @@ else if (msg.body == "5") {
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
--=[ 🔥 Generate Maker Text 🔥 ]=-
+-=[ 🔥 Generate Logo Maker 🔥 ]=-
 
 • *!glowtext* Namamu
 • *!pubg* Namamu
@@ -2235,6 +2297,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
 • *!dragon* Namamu
 • *!aldous* Namamu
 • *!tatto* Namamu
+• *!goldplay* Namamu
 `);
 }	
 
