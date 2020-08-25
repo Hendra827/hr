@@ -14,12 +14,12 @@ let sessionCfg;
 if (fs.existsSync(SESSION_FILE_PATH)) {
   sessionCfg = require(SESSION_FILE_PATH);
 }
-client = new Client({	  
+client = new Client({   
     
-	     puppeteer: {
+       puppeteer: {
         executablePath: 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
         headless: true,
-		args: [
+    args: [
       "--log-level=3", // fatal only
    
       "--no-default-browser-check",
@@ -40,8 +40,8 @@ client = new Client({
       "--no-first-run",
       "--no-zygote"
     ]
-		
-    },	      
+    
+    },        
     session: sessionCfg
 });
 // You can use an existing session and avoid scanning a QR code by adding a "session" object to the client options.
@@ -220,14 +220,14 @@ client.on("disconnected", reason => {
 // ======================= WaBot Listen on message
 
 client.on("message", async msg => {
-	// console.log('MESSAGE RECEIVED', msg);
+  // console.log('MESSAGE RECEIVED', msg);
     const chat = await msg.getChat();
     const users = await msg.getContact()
     const dariGC = msg['author']
     const dariPC = msg['from']
-	console.log(` ${chat} 
-	participant
-	`)
+  console.log(` ${chat} 
+  participant
+  `)
 const botTol = () => {
         msg.reply('*Akses Untuk Menu Admin Ditolak*')
         return
@@ -258,9 +258,9 @@ const botTol = () => {
             const contact = await client.getContactById(participant.id._serialized);
 
             mentions.push(contact);
-			text += "Hay Beb ";
+      text += "Hay Beb ";
             text += `@${participant.id.user} `;
-			text += "\n";
+      text += "\n";
         }
 
         chat.sendMessage(text, { mentions });
@@ -361,11 +361,11 @@ console.log(gambar);
 client.sendMessage(media);
 }
  else if (msg.body.startsWith("!prepayer ")) {
-	 msg.reply("sebentarr.. kita proses dulu")
-	  var h = msg.body.split("!prepayer ")[1];
-	 var nama = h.split("] ")[1];
-	 var kata1 = h.split("[")[1].split("]")[0];
-	 	const { exec } = require("child_process");
+   msg.reply("sebentarr.. kita proses dulu")
+    var h = msg.body.split("!prepayer ")[1];
+   var nama = h.split("] ")[1];
+   var kata1 = h.split("[")[1].split("]")[0];
+    const { exec } = require("child_process");
 
   (async () => {
     const browser = await puppeteer.launch({
@@ -378,12 +378,12 @@ client.sendMessage(media);
         waitUntil: "networkidle2",
       })
       .then(async () => {
-		  		await page.click("#radio0-radio-83d1c1baf4c44e72bacc6cb8fe1c92a0");
+          await page.click("#radio0-radio-83d1c1baf4c44e72bacc6cb8fe1c92a0");
      await page.type("#text-1", kata1);
    
-		  await page.type("#text-0", nama);
-		await page.click("#submit");
-		await new Promise(resolve => setTimeout(resolve, 10000));
+      await page.type("#text-0", nama);
+    await page.click("#submit");
+    await new Promise(resolve => setTimeout(resolve, 10000));
         try {
          
           await page.waitForSelector(
@@ -398,8 +398,8 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/ff.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/ff.jpg');
 
-	msg.reply(media);
-	if (error) {
+  msg.reply(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -421,15 +421,15 @@ client.sendMessage(media);
         console.log(error);
     
       });
-	 
-	 
+   
+   
   })();
  }
  else if (msg.body.startsWith("!glowtext ")) {
-	 msg.reply("sebentarr.. kita proses dulu")
-	  var h = msg.body.split("!glowtext ")[1];
+   msg.reply("sebentarr.. kita proses dulu")
+    var h = msg.body.split("!glowtext ")[1];
 
-	 	const { exec } = require("child_process");
+    const { exec } = require("child_process");
 
   (async () => {
     const browser = await puppeteer.launch({
@@ -442,9 +442,9 @@ client.sendMessage(media);
         waitUntil: "networkidle2",
       })
       .then(async () => {
-		  await page.type("#text-0", h);
-		await page.click("#submit");
-		await new Promise(resolve => setTimeout(resolve, 10000));
+      await page.type("#text-0", h);
+    await page.click("#submit");
+    await new Promise(resolve => setTimeout(resolve, 10000));
         try {
          
           await page.waitForSelector(
@@ -459,8 +459,8 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/glow.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/glow.jpg');
 
-	msg.reply(media);
-	if (error) {
+  msg.reply(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -482,8 +482,8 @@ client.sendMessage(media);
         console.log(error);
     
       });
-	 
-	 
+   
+   
   })();
  }
    else if (msg.body.startsWith("!neon ")) {
@@ -520,7 +520,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/neon.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/neon.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -581,7 +581,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -642,7 +642,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -671,11 +671,11 @@ client.sendMessage(media);
  }
 
  else if (msg.body.startsWith("!lolmaker ")) {
-	 msg.reply("sebentarr.. kita proses dulu")
-	  var h = msg.body.split("!lolmaker ")[1];
-	 var nama = h.split("] ")[1];
-	 var kata1 = h.split("[")[1].split("]")[0];
-	 	const { exec } = require("child_process");
+   msg.reply("sebentarr.. kita proses dulu")
+    var h = msg.body.split("!lolmaker ")[1];
+   var nama = h.split("] ")[1];
+   var kata1 = h.split("[")[1].split("]")[0];
+    const { exec } = require("child_process");
 
   (async () => {
     const browser = await puppeteer.launch({
@@ -684,16 +684,16 @@ client.sendMessage(media);
     });
     const page = await browser.newPage();
     await page
-      .goto("https://en.ephoto360.com/create-youtube-banner-league-of-legends-online-428.html", {
+      .goto("https://en.ephoto360.com/crtmle-youtube-banner-league-of-legends-online-428.html", {
         waitUntil: "networkidle2",
       })
       .then(async () => {
-		  		await page.click("#radio0-radio-83d1c1baf4c44e72bacc6cb8fe1c92a0");
+          await page.click("#radio0-radio-v81gsz6qq");
      await page.type("#text-1", kata1);
    
-		  await page.type("#text-0", nama);
-		await page.click("#submit");
-		await new Promise(resolve => setTimeout(resolve, 10000));
+      await page.type("#text-0", nama);
+    await page.click("#submit");
+    await new Promise(resolve => setTimeout(resolve, 10000));
         try {
          
           await page.waitForSelector(
@@ -708,8 +708,8 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/ff.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/ff.jpg');
 
-	msg.reply(media);
-	if (error) {
+  msg.reply(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -731,8 +731,8 @@ client.sendMessage(media);
         console.log(error);
     
       });
-	 
-	 
+   
+   
   })();
  }
 
@@ -770,7 +770,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -832,7 +832,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -894,7 +894,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -956,7 +956,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1018,7 +1018,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1080,7 +1080,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/galaxy.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/galaxy.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1141,7 +1141,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/galaxy1.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/galaxy1.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1202,7 +1202,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-	msg.reply(media);
+  msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1233,8 +1233,8 @@ client.sendMessage(media);
   else if (msg.body.startsWith("!fb ")) {
     msg.reply(`*Hai, Kita Proses Dulu Ya . . .*`);
     let link = msg.body.split(" ")[1];
-	var namafile = "gue.mp4"
-	const { exec } = require("child_process");
+  var namafile = "gue.mp4"
+  const { exec } = require("child_process");
     const browser = await puppeteer.launch({
       headless: false,
       args: [
@@ -1274,13 +1274,13 @@ client.sendMessage(media);
           );
           msg.reply(
             `*BERHASIL!!!*
-			       `     );
-		  
+             `     );
+      
 exec('wget "' + text + '" -O mp4/'+ namafile +'.mp4', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/'+ namafile +'.mp4');
 
-	chat.sendMessage(media);
-	if (error) {
+  chat.sendMessage(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -1313,8 +1313,8 @@ exec('wget "' + text + '" -O mp4/'+ namafile +'.mp4', (error, stdout, stderr) =>
         );
         browser.close();
       });
-	 
-	 
+   
+   
   } 
 else if (msg.body.startsWith("!translate ")) {
 const translatte = require('translatte');
@@ -1336,16 +1336,16 @@ else if (msg.body.startsWith('!join ')) {
         }
     }
 else if (msg.body.startsWith("!lirik ")) {
-	var get = msg.body.split("!lirik ")[1];
-	var artis = get.split("-")[0];
+  var get = msg.body.split("!lirik ")[1];
+  var artis = get.split("-")[0];
 
-	var lirik = get.split("-")[1];
-	const { getLyrics } = require("genius-lyrics-api");
+  var lirik = get.split("-")[1];
+  const { getLyrics } = require("genius-lyrics-api");
 const options = {
-	apiKey: 'NvLyzudSQ3xvZNwGaMzleGIFEDSe6qeQHl6gShNALO3LUI40mmS-nDT611UED5E7',
-	title: lirik,
-	artist: artis,
-	optimizeQuery: true
+  apiKey: 'NvLyzudSQ3xvZNwGaMzleGIFEDSe6qeQHl6gShNALO3LUI40mmS-nDT611UED5E7',
+  title: lirik,
+  artist: artis,
+  optimizeQuery: true
 };
 
 getLyrics(options).then((lyrics) => msg.reply(`
@@ -1353,7 +1353,7 @@ getLyrics(options).then((lyrics) => msg.reply(`
 ${lyrics}`));
 
 }
-	else if (msg.body.startsWith("!wiki ")) {
+  else if (msg.body.startsWith("!wiki ")) {
 const cheerio = require('cheerio');
 const request = require('request');
 var yos = msg.body.split("!wiki ")[1]
@@ -1399,14 +1399,14 @@ msg.reply("bentarr lagi di proses dulu ya .. 😣");
 exec('wget "' + gehu + '" -O mp4/gue.mp4', (error, stdout, stderr) => {
      const media = MessageMedia.fromFilePath('mp4/gue.mp4');
 chat.sendMessage(media);
-	 
-	if (error) {
+   
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
     if (stderr) {
         console.log(`stderr: ${stderr}`);
-		msg.reply("yahh gagal 😭");
+    msg.reply("yahh gagal 😭");
         return;
     }
 
@@ -1416,9 +1416,9 @@ chat.sendMessage(media);
 }else if (msg.body.startsWith("!igv ")) {
     msg.reply(`*Hai, Kita Proses Dulu Ya . . .*`);
     let link = msg.body.split(" ")[1];
-	var namafile = link.split("/p/")[1].split("/")[0];
+  var namafile = link.split("/p/")[1].split("/")[0];
 
-	const { exec } = require("child_process");
+  const { exec } = require("child_process");
     const browser = await puppeteer.launch({
       headless: false,
       args: [
@@ -1465,8 +1465,8 @@ chat.sendMessage(media);
 exec('wget "' + text + '" -O mp4/'+ namafile +'.mp4', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/'+ namafile +'.mp4');
 
-	chat.sendMessage(media);
-	if (error) {
+  chat.sendMessage(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -1480,7 +1480,7 @@ exec('wget "' + text + '" -O mp4/'+ namafile +'.mp4', (error, stdout, stderr) =>
           browser.close();
         } catch (error) {
           console.log(
-            `[${moment().format("hh:mm:ss")}][!fb][${
+            `[${moment().format("hh:mm:ss")}][!igv][${
               msg.from
             }] > GAGAL Dilakukan`
           );
@@ -1492,22 +1492,22 @@ exec('wget "' + text + '" -O mp4/'+ namafile +'.mp4', (error, stdout, stderr) =>
       })
       .catch((err) => {
         console.log(
-          `[${moment().format("hh:mm:ss")}][!fb][${msg.from}] > GAGAL Dilakukan`
+          `[${moment().format("hh:mm:ss")}][!igv][${msg.from}] > GAGAL Dilakukan`
         );
         msg.reply(
           `[GAGAL] Server Sedang Down!\n\nSilahkan Coba Beberapa Saat Lagi!`
         );
         browser.close();
       });
-	 
-	 
+   
+   
   } 
   else if (msg.body.startsWith("!igp ")) {
     msg.reply(`*Hai, Kita Proses Dulu Ya . . .*`);
     let link = msg.body.split(" ")[1];
-	var namafile = link.split("/p/")[1].split("/")[0];
+  var namafile = link.split("/p/")[1].split("/")[0];
 
-	const { exec } = require("child_process");
+  const { exec } = require("child_process");
     const browser = await puppeteer.launch({
       headless: false,
       args: [
@@ -1541,7 +1541,7 @@ exec('wget "' + text + '" -O mp4/'+ namafile +'.mp4', (error, stdout, stderr) =>
           );
           const judul1 = await (await judul.getProperty("title")).jsonValue();
           console.log(
-            `[${moment().format("hh:mm:ss")}][!fb][${
+            `[${moment().format("hh:mm:ss")}][!igp][${
               msg.from
             }] > Berhasil Dilakukan`
           );
@@ -1553,8 +1553,8 @@ _Sedang mengirimkan video .._🎬`
 exec('wget "' + text + '" -O mp4/'+ namafile +'.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/'+ namafile +'.jpg');
 
-	chat.sendMessage(media);
-	if (error) {
+  chat.sendMessage(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -1568,7 +1568,7 @@ exec('wget "' + text + '" -O mp4/'+ namafile +'.jpg', (error, stdout, stderr) =>
           browser.close();
         } catch (error) {
           console.log(
-            `[${moment().format("hh:mm:ss")}][!fb][${
+            `[${moment().format("hh:mm:ss")}][!igp][${
               msg.from
             }] > GAGAL Dilakukan`
           );
@@ -1580,15 +1580,15 @@ exec('wget "' + text + '" -O mp4/'+ namafile +'.jpg', (error, stdout, stderr) =>
       })
       .catch((err) => {
         console.log(
-          `[${moment().format("hh:mm:ss")}][!fb][${msg.from}] > GAGAL Dilakukan`
+          `[${moment().format("hh:mm:ss")}][!igp][${msg.from}] > GAGAL Dilakukan`
         );
         msg.reply(
           `[GAGAL] Server Sedang Down!\n\nSilahkan Coba Beberapa Saat Lagi!`
         );
         browser.close();
       });
-	 
-	 
+   
+   
   } 
 else if (msg.body.startsWith("!brainly ")) {
 var hh = msg.body.split("!brainly ")[1]
@@ -1601,7 +1601,7 @@ const solution = () => {
   fetch(url).then(res => res.json()).then((res) => {
     
 res.data.questionSearch.edges.slice(-2).forEach(item => {
-	var tanyaan = item.node.content
+  var tanyaan = item.node.content
     item.node.answers.nodes.slice(-2).forEach(item => { 
  var jawaban = item['content']
  var g = jawaban.replace(regex, "\n")
@@ -1613,11 +1613,11 @@ Jenis Perintah : *!Brainly*
             
 ======================
 Pertanyaan : 
-		
+    
       *${tanyaan.replace(regex, "\n")}*
       
 Jawaban : 
-	  
+    
       *${h}*
       
 ======================
@@ -1794,10 +1794,10 @@ Link           : *${res[3].url}*
 }
 
 else if (msg.body == "!wait") {
-	const fs = require("fs");
+  const fs = require("fs");
 const { exec } = require("child_process");
 
-		const chat = await msg.getChat();
+    const chat = await msg.getChat();
     if (msg.hasMedia) {
       const attachmentData = await msg.downloadMedia();
       
@@ -1832,9 +1832,9 @@ var video = `https://trace.moe/preview.php?anilist_id=${result.docs[0].anilist_i
 exec('wget "' + video + '" -O anime.mp4', (error, stdout, stderr) => {
 
 let media = MessageMedia.fromFilePath('anime.mp4');
-	client.sendMessage(msg.from, media, {
-	caption: teks });
-	if (error) {
+  client.sendMessage(msg.from, media, {
+  caption: teks });
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -1854,14 +1854,14 @@ let media = MessageMedia.fromFilePath('anime.mp4');
         }
     )
 
-	}
+  }
 else{
-		const tutor = MessageMedia.fromFilePath('tutor.jpeg');
+    const tutor = MessageMedia.fromFilePath('tutor.jpeg');
 
-		client.sendMessage(msg.from, tutor, {
+    client.sendMessage(msg.from, tutor, {
         caption: "Kirim gambar dengan caption *!wait* \n sesuai gambar diatas lalu tunggu sampai \n kita menemukan hasilnya"
       });
-	  }
+    }
 }
 else if (msg.body.startsWith("!nh ")) {
 const kode = msg.body.split(" ")[1];
@@ -1882,9 +1882,9 @@ exec('wget "' + url + '" -O cover.jpg', (error, stdout, stderr) => {
  var teks = "Judul English  : "+ g.title.english.slice("0") +" \n \n Judul Japanese : "+ g.title.japanese +"\n \n Judul Pendek   : "+ g.title.pretty +"\n \n Kode Nuklir    : "+ g.id +" \n ";
 
 let media = MessageMedia.fromFilePath('cover.jpg');
-	client.sendMessage(msg.from, media, {
-	caption: teks });
-	if (error) {
+  client.sendMessage(msg.from, media, {
+  caption: teks });
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -1961,8 +1961,8 @@ YD.on("error", function(error) {
 }
 
 else if (msg.body.startsWith("!tts")) {
-	msg.reply('ketik !menu untuk melihat list menu bot | AZ Bot');
-	var texttomp3 = require("text-to-mp3");
+  msg.reply('ketik !menu untuk melihat list menu bot | AZ Bot');
+  var texttomp3 = require("text-to-mp3");
     var fs = require("fs");
 
 var suara = msg.body.split("!tts ")[1];
@@ -2012,12 +2012,12 @@ texttomp3.getMp3(text, function(err, data){
 });
 await new Promise(resolve => setTimeout(resolve, 500));
 
-	if(text.length > 200){ // check longness of text, because otherways google translate will give me a empty file
+  if(text.length > 200){ // check longness of text, because otherways google translate will give me a empty file
   msg.reply("Text to long, split in text of 200 characters")
 }else{
-	const media = MessageMedia.fromFilePath(fn);
+  const media = MessageMedia.fromFilePath(fn);
 
-	msg.reply(media);
+  msg.reply(media);
 
 }
 
@@ -2041,7 +2041,7 @@ client.sendMessage(
      _${kata}_
         
     
-	*~${author}*
+  *~${author}*
          `
       );
 
@@ -2060,13 +2060,13 @@ request.get({
     var author = $('a[class="auteurfbnaam"]').contents().first().text();
    var kata = $('q[class="fbquote"]').contents().first().text();
 
-	msg.reply(
+  msg.reply(
         msg.from,
         `
      _${kata}_
         
     
-	*~${author}*
+  *~${author}*
          `
       );
 
@@ -2161,7 +2161,7 @@ request.post({
 //    var ar = $('source').attr('src');
 var h  = body.replace(/<[^>]*>?/gm, "\r");
 var k = h.replace("Share Link", '');
-	msg.reply(
+  msg.reply(
       msg.from,
       `  ${k}
       `);
@@ -2338,12 +2338,12 @@ chat.sendMessage(media);
    else if (msg.body == "donasi" ||
     msg.body === "donasi ") {
     // Send a new message to the same chat
-	  msg.reply(`
+    msg.reply(`
 📢 Support AZ WhatsApp
     _Terimakasih telah menggunakan layanan bot kami saat ini.. kami telah membuat layanan Fitur Donasi untuk support AZ WhatsApp Bot agar tetap berjalan.. donasi tersebut kami pakai untuk perpanjang server setiap bulannya._
   • *DANA* : 081342077268
   • *OVO* : 081342077268
-  • *Pulsa Telkomsel : 085156206614
+  • *Pulsa Telkomsel* : 085156206614
 
 Contact Admin Via WhatsApp : wa.me/6281342077268
 
@@ -2352,7 +2352,7 @@ Contact Admin Via WhatsApp : wa.me/6281342077268
      else if (msg.body == "!rules" ||
     msg.body === "rules ") {
     // Send a new message to the same chat
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Jenis Perintah : *!rules*
@@ -2380,7 +2380,7 @@ Rules ini untuk kenyamanan semua yang memakai
 bot ini
 
 
-	`);
+  `);
   }
  else if (msg.body == "6") {
 const cheerio = require('cheerio');
@@ -2396,10 +2396,10 @@ request.get({
     var d = JSON.parse(body);
 console.log(d.url); 
 exec('wget "' + d.url + '" -O ok.jpg', (error, stdout, stderr) => {
-	var media = MessageMedia.fromFilePath('ok.jpg');
+  var media = MessageMedia.fromFilePath('ok.jpg');
 
-	msg.reply(media);
-	if (error) {
+  msg.reply(media);
+  if (error) {
         console.log(`error: ${error.message}`);
         return;
     }
@@ -2440,22 +2440,24 @@ exec('wget "' + d.url + '" -O ok.jpg', (error, stdout, stderr) => {
   } else if (msg.body == "Assalamuallaikum" || msg.body == "Assalamu'alaikum" || msg.body == "mikum" || msg.body == "assalamuallaikum" || msg.body == "Assalamualaikum" || msg.body == "assalamualaikum") {
     client.sendMesssage(msg.from, "Waalaikumusallam");
   }else if (msg.body == "!menu") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Jenis Perintah : *!menu*
 
-Berikut daftar perintah yang bisa digunakan :			
+Berikut daftar perintah yang bisa digunakan :     
 • *.admin* : Menu Admin Grup
 • *1* : Menu Utama
 • *2* : Menu Music Download
 • *3* : Menu Horoscape
 • *4* : Menu Cek Resi
 • *5* : Tools Logo Maker
+• *donasi* : Support AZ WhatsApp Agar Tetap Aktif
 `);
+
 }
 else if (msg.body == ".admin") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2475,7 +2477,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
  }
  
  else if (msg.body == "1") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2500,7 +2502,7 @@ contoh (Jika tidak mengetahui nama artis) : !lirik - faded
 `);
  }
 else if (msg.body == "bmzt") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2523,7 +2525,7 @@ contoh : !igv url
 `);
 }
 else if (msg.body == "2") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2536,10 +2538,10 @@ Dibuat Oleh : *Alif Putra Darmawan*
 
 *AZ WhatsApp Bot © 2020*
 `);
-}	
+} 
 
 else if (msg.body == "3") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2556,9 +2558,9 @@ contoh : !sial 17 08 1945
 • *!pasangan* : Check kecocokan jodoh
  contoh : !pasangan Dimas & Dinda
 `);
-}	
+} 
 else if (msg.body == "5") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2582,7 +2584,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
 
 *AZ WhatsApp Bot © 2020*
 `);
-}	
+} 
 
 else if (msg.body == "!test") {
 msg.reply(" Hallo silahkan reply pesan ini dan sebutkan umur kamu \n\n dengan format *umur(spasi) umur* \n contoh *umur 21*");
@@ -2609,7 +2611,7 @@ Versi : *1.2*
 }
 }
   else if (msg.body == "4") {
-	  msg.reply(`
+    msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2620,7 +2622,7 @@ Versi : *1.2*
 • *!sap kode resi*
 • *!pcp kode resi*
 • *!lex kode resi*
-	  `);
+    `);
   }
   else if (msg.body == "#codebahasa") {
     msg.reply(`
@@ -2628,7 +2630,7 @@ Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
 
-	Bahasa                Code
+  Bahasa                Code
 ######               #####
 English                 |  en
 Esperanto            |  eo
@@ -2814,4 +2816,3 @@ YD.on("progress", function(data) {
 }
 
 });
-
