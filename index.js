@@ -608,6 +608,71 @@ client.sendMessage(media);
    
   })();
  }
+ else if (msg.body.startsWith("!lolmaker ")) {
+	 msg.reply("sebentarr.. kita proses dulu")
+	  var h = msg.body.split("!lolmaker ")[1];
+	 var nama = h.split("] ")[1];
+	 var kata1 = h.split("[")[1].split("]")[0];
+	 	const { exec } = require("child_process");
+
+  (async () => {
+    const browser = await puppeteer.launch({
+      headless: false,
+
+    });
+    const page = await browser.newPage();
+    await page
+      .goto("https://en.ephoto360.com/create-youtube-banner-league-of-legends-online-428.html", {
+        waitUntil: "networkidle2",
+      })
+      .then(async () => {
+		  		await page.click("#radio0-radio-83d1c1baf4c44e72bacc6cb8fe1c92a0");
+     await page.type("#text-1", kata1);
+   
+		  await page.type("#text-0", nama);
+		await page.click("#submit");
+		await new Promise(resolve => setTimeout(resolve, 10000));
+        try {
+         
+          await page.waitForSelector(
+            "#link-image"
+          );
+          const element = await page.$(
+         "div.thumbnail > img"
+          );
+          const text = await (await element.getProperty("src")).jsonValue();
+         console.log(text);
+
+        exec('wget "' + text + '" -O mp4/ff.jpg', (error, stdout, stderr) => {
+  const media = MessageMedia.fromFilePath('mp4/ff.jpg');
+
+	chat.sendMessage(media);
+	if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+
+    console.log(`stdout: ${stdout}`);
+});
+          browser.close();
+        } catch (error) {
+          console.log(error);
+       
+
+        }
+      })
+      .catch((err) => {
+        console.log(error);
+    
+      });
+	 
+	 
+  })();
+ }
 
    else if (msg.body.startsWith("!goldplay ")) {
    msg.reply("_Mohon Menunggu Juragan_")
@@ -2441,6 +2506,8 @@ Dibuat Oleh : *Alif Putra Darmawan*
 • *!tatto* Namamu
 • *!goldplay* Namamu
 • *!arum* Namamu
+• *!prepayer* [TEXT1] [TEXT2]
+• *!lolmaker* Namamu
 `);
 }	
 
