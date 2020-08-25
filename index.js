@@ -398,7 +398,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/ff.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/ff.jpg');
 
-	chat.sendMessage(media);
+	msg.reply(media);
 	if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -459,7 +459,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/glow.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/glow.jpg');
 
-	chat.sendMessage(media);
+	msg.reply(media);
 	if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -520,7 +520,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/neon.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/neon.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -581,7 +581,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -642,7 +642,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -708,7 +708,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/ff.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/ff.jpg');
 
-	chat.sendMessage(media);
+	msg.reply(media);
 	if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -770,7 +770,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -832,7 +832,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -894,7 +894,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -956,7 +956,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1018,7 +1018,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1080,7 +1080,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/galaxy.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/galaxy.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1141,7 +1141,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/galaxy1.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/galaxy1.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1202,7 +1202,7 @@ client.sendMessage(media);
         exec('wget "' + text + '" -O mp4/pubg.jpg', (error, stdout, stderr) => {
   const media = MessageMedia.fromFilePath('mp4/pubg.jpg');
 
-  chat.sendMessage(media);
+	msg.reply(media);
   if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -1951,7 +1951,7 @@ Artis : *${data.artist}*
    ----------------------------------
 *AZ-WhatsApp © 2020* 
 `);
-chat.sendMessage(musik);
+msg.reply(musik);
 });
 YD.on("error", function(error) {
     console.log(error);
@@ -2017,7 +2017,7 @@ await new Promise(resolve => setTimeout(resolve, 500));
 }else{
 	const media = MessageMedia.fromFilePath(fn);
 
-	chat.sendMessage(media);
+	msg.reply(media);
 
 }
 
@@ -2060,7 +2060,7 @@ request.get({
     var author = $('a[class="auteurfbnaam"]').contents().first().text();
    var kata = $('q[class="fbquote"]').contents().first().text();
 
-client.sendMessage(
+	msg.reply(
         msg.from,
         `
      _${kata}_
@@ -2161,7 +2161,7 @@ request.post({
 //    var ar = $('source').attr('src');
 var h  = body.replace(/<[^>]*>?/gm, "\r");
 var k = h.replace("Share Link", '');
-client.sendMessage(
+	msg.reply(
       msg.from,
       `  ${k}
       `);
@@ -2345,7 +2345,7 @@ chat.sendMessage(media);
      else if (msg.body == "!rules" ||
     msg.body === "rules ") {
     // Send a new message to the same chat
-    client.sendMessage(msg.from, ` 
+    msg.reply(msg.from, ` 
 Nama : *AZ WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Jenis Perintah : *!rules*
@@ -2391,7 +2391,7 @@ console.log(d.url);
 exec('wget "' + d.url + '" -O ok.jpg', (error, stdout, stderr) => {
 	var media = MessageMedia.fromFilePath('ok.jpg');
 
-	chat.sendMessage(media);
+	msg.reply(media);
 	if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -2448,7 +2448,7 @@ Berikut daftar perintah yang bisa digunakan :
 `);
 }
 else if (msg.body == ".admin") {
- client.sendMessage(msg.from,  `
+ msg.reply(msg.from,  `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2468,7 +2468,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
  }
  
  else if (msg.body == "1") {
- client.sendMessage(msg.from,  `
+ msg.reply(msg.from,  `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2516,7 +2516,7 @@ contoh : !igv url
 `);
 }
 else if (msg.body == "2") {
-	client.sendMessage (msg.from, `
+	msg.reply (msg.from, `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2532,7 +2532,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
 }	
 
 else if (msg.body == "3") {
-	client.sendMessage (msg.from, `
+	msg.reply (msg.from, `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2551,7 +2551,7 @@ contoh : !sial 17 08 1945
 `);
 }	
 else if (msg.body == "5") {
-	client.sendMessage (msg.from, `
+	msg.reply (msg.from, `
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2796,7 +2796,7 @@ _Harap diketahui, Demi Kepentingan Bersama! Tolong Jangan Request Yang Aneh Aneh
 
 🔉  *${data.videoTitle}* 
 `);
-chat.sendMessage(musik);
+ msg.reply(musik);
 });
 YD.on("progress", function(data) {
 });
