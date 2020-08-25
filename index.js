@@ -2335,17 +2335,24 @@ chat.sendMessage(media);
 });
 
  }
-   else if (msg.body == "#donasi" ||
+   else if (msg.body == "donasi" ||
     msg.body === "donasi ") {
     // Send a new message to the same chat
-    client.sendMessage(msg.from, ` 
-	null
-	`);
+	  msg.reply(`
+📢 Support AZ WhatsApp
+    _Terimakasih telah menggunakan layanan bot kami saat ini.. kami telah membuat layanan Fitur Donasi untuk support AZ WhatsApp Bot agar tetap berjalan.. donasi tersebut kami pakai untuk perpanjang server setiap bulannya._
+  • *DANA* : 081342077268
+  • *OVO* : 081342077268
+  • *Pulsa Telkomsel : 085156206614
+
+Contact Admin Via WhatsApp : wa.me/6281342077268
+
+*AZ WhatsApp Bot © 2020*`);
   }
      else if (msg.body == "!rules" ||
     msg.body === "rules ") {
     // Send a new message to the same chat
-    msg.reply(msg.from, ` 
+	  msg.reply(`
 Nama : *AZ WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Jenis Perintah : *!rules*
@@ -2433,7 +2440,7 @@ exec('wget "' + d.url + '" -O ok.jpg', (error, stdout, stderr) => {
   } else if (msg.body == "Assalamuallaikum" || msg.body == "Assalamu'alaikum" || msg.body == "mikum" || msg.body == "assalamuallaikum" || msg.body == "Assalamualaikum" || msg.body == "assalamualaikum") {
     client.sendMesssage(msg.from, "Waalaikumusallam");
   }else if (msg.body == "!menu") {
- client.sendMessage(msg.from,  `
+	  msg.reply(`
 Nama : *AZ WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Jenis Perintah : *!menu*
@@ -2448,7 +2455,7 @@ Berikut daftar perintah yang bisa digunakan :
 `);
 }
 else if (msg.body == ".admin") {
- msg.reply(msg.from,  `
+	  msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2468,7 +2475,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
  }
  
  else if (msg.body == "1") {
- msg.reply(msg.from,  `
+	  msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2493,7 +2500,7 @@ contoh (Jika tidak mengetahui nama artis) : !lirik - faded
 `);
  }
 else if (msg.body == "bmzt") {
- client.sendMessage(msg.from,  `
+	  msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2516,7 +2523,7 @@ contoh : !igv url
 `);
 }
 else if (msg.body == "2") {
-	msg.reply (msg.from, `
+	  msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2532,7 +2539,7 @@ Dibuat Oleh : *Alif Putra Darmawan*
 }	
 
 else if (msg.body == "3") {
-	msg.reply (msg.from, `
+	  msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 Versi : *1.2*
@@ -2551,7 +2558,7 @@ contoh : !sial 17 08 1945
 `);
 }	
 else if (msg.body == "5") {
-	msg.reply (msg.from, `
+	  msg.reply(`
 Nama : *AZ-WhatsApp Bot*
 Dibuat Oleh : *Alif Putra Darmawan*
 
@@ -2569,8 +2576,11 @@ Dibuat Oleh : *Alif Putra Darmawan*
 • *!goldplay* Namamu
 • *!arum* Namamu
 • *!prepayer* [TEXT1] [TEXT2]
-• *!lolmaker* [TEXT1] [TEXT2]
 • *!spop* Namamu
+
+✨ Note : Dilarang Menggunakan Karakter Emoticon Atau Symbol Dalam Pembuatan Logo Maker Bot Ini.
+
+*AZ WhatsApp Bot © 2020*
 `);
 }	
 
